@@ -1,35 +1,18 @@
 <template>
-  <div class="container">
-    <h1>Page</h1>
-
-  </div>
+  <section>
+    <h1>Nuxt</h1>
+  </section>
 </template>
 
 <script>
-export default {
-  mounted() {
 
+import Navbar from "~/components/Navbar";
+export default {
+  components: {
+    Navbar
   }
 }
 </script>
+<style>
 
-<style lang="scss">
-
-h2 {
-  color: red;
-}
-h1 {
-  color: $color__secondary;
-  @include breakpoint($phone__all) {
-    color: red;
-  }
-
-  @include breakpoint($tablet__all) {
-    color: green;
-  }
-
-  @include breakpoint($desktop__laptop) {
-    color: purple;
-  }
-}
 </style>
