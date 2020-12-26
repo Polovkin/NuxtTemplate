@@ -7,12 +7,15 @@
 <script>
 
 import Navbar from "~/components/Navbar";
+
 export default {
   components: {
     Navbar
   }
 }
 </script>
-<style>
-
+<style lang="scss">
+h1 {
+  color: $color__primary;
+}
 </style>
