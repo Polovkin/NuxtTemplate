@@ -32,6 +32,7 @@ export default {
     axios: {},
 
     build: {
+        //transpile: ['vuetify'] //IE11
         postcss: [
             require('autoprefixer')({}),
             require('cssnano')({
