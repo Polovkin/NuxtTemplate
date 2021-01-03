@@ -14,7 +14,7 @@ export default {
     css: [
     ],
     styleResources: {
-        scss: '@/assets/scss/core/base.scss'
+        scss: '@/assets/scss/core/_global.scss'
     },
     plugins: [],
 
