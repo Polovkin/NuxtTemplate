@@ -8,7 +8,6 @@
       :class="{'input-custom__placeholder--animate':placeholderAnimate}"
       class="input-custom__placeholder"
     >{{ placeholder }}</span>
-
     <input
       v-model="$v.text.$model"
       class="input-custom input-custom__animate"

@@ -1,48 +1,19 @@
 //Buttons
 
 button {
-  $color: #a6ff00;
-  padding: 10px 25px;
-  border: 1px solid $color;
-  margin: 10px;
-  border-radius: 10px;
-  font-weight: bold;
-  color: $color;
-  transition: all .2s;
-  &:hover {
-    color: white;
-    background-color: $color;
-    border-color: $color;
-  }
+
 
 }
-//Forms
+
+label {
+  color: $input__font-color;
+  font-size: $input__font-size;
+}
+
 input {
-  &:valid:not(:placeholder-shown) {
-    color: $color__success;
-    border: {
-      color: $color__success;
-      style: solid;
-    }
-  }
-
-  &:invalid:not(:placeholder-shown) {
-    color: $color__error;
-    border: {
-      color: $color__error;
-      style: solid;
-    }
+  color: inherit;
+  font-size: inherit;
+  &::placeholder {
+    color: $input__placeholder-color;
   }
 }
-
-
-span.error {
-  transition: all .3s;
-  position: relative;
-  color: $color__error;
-  font-size: 13px;
-  top: -7px;
-  left: 7px;
-  opacity: 0;
-}
-
