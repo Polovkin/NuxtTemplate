@@ -1,8 +1,10 @@
 <template lang="pug">
   section
     Navbar
-    InputAnimate(:type="'password'")
-    ButtonWave
+    InputAnimate(:placeholder="'simple text'")
+    InputAnimate(type-password)
+    InputAnimate(type-email)
+    ButtonWave text
 </template>
 
 <script>
@@ -10,11 +12,10 @@
 import Navbar from '~/components/Navbar'
 import ButtonWave from '~/components/ButtonWave'
 import InputAnimate from '~/components/InputAnimate'
-import TextAreaAnimate from '~/components/customInput/TextAreaAnimate'
 
 export default {
   components: {
-    Navbar, TextAreaAnimate, InputAnimate, ButtonWave
+    Navbar, InputAnimate, ButtonWave
   }
 }
 </script>

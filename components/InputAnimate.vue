@@ -1,34 +1,15 @@
 <template lang="pug">
 
-  //Text
   label.input-custom__label(
-    v-if="type==='text'"
-    :class="{'input-custom--error': ($v.text.$error && $v.text.$dirty) ,'input-custom--valid': !$v.text.$error && $v.text.$dirty}")
-
-    span.input-custom__placeholder(:class="{'input-custom__placeholder--animate':placeholderAnimate}")
-      | {{ placeholder }}
-
-    input.input-custom.input-custom__animate(
-      v-model='$v.text.$model'
-      :type='type'
-      @click='placeholderAnimate=true'
-      @blur='unfocused'
-      @input='updateValue($event.target.value)')
-
-    span.input-custom__error-msg.animation-shake(v-if='!$v.text.required && $v.text.$dirty')
-      | Field is required
-
-  //Password
-  label.input-custom__label(
-    v-else-if="type==='password'"
+    v-if="typePassword"
     :class="{'input-custom--error': $v.password.$error && $v.password.$dirty,'input-custom--valid': !$v.password.$error && $v.password.$dirty}")
 
     span.input-custom__placeholder(:class="{'input-custom__placeholder--animate':placeholderAnimate}")
-      | {{ placeholder }}
+      | {{ placeholder ? placeholder : 'password' }}
 
     input.input-custom.input-custom__animate(
       v-model='$v.password.$model'
-      :type="passwordState ? 'text' : type"
+      :type="passwordState ? 'text' : 'password'"
       autocomplete='new-password'
       @click='placeholderAnimate=true'
       @blur='unfocused'
@@ -39,11 +20,48 @@
       :class="{'input-custom__eye--hidden':passwordState}"
       @click='passwordState=!passwordState')
     span.input-custom__error-msg.animation-shake(v-if='!$v.password.required && $v.password.$dirty')
-        | Field is required
+      | Field is required
     span.input-custom__error-msg.animation-shake(v-if='!$v.password.minLength')
-        | Password must have at least {{ $v.password.$params.minLength.min }} letters.
+      | Password must have at least {{ $v.password.$params.minLength.min }} letters.
     span.input-custom__error-msg.animation-shake(v-if='!$v.password.maxLength')
-        | Password must have no more than {{ $v.password.$params.maxLength.max }} letters.
+      | Password must have no more than {{ $v.password.$params.maxLength.max }} letters.
+
+  //Email
+  label.input-custom__label(
+    v-else-if="typeEmail"
+    :class="{ 'input-custom--error': $v.email.$error && $v.email.$dirty ,'input-custom--valid': !$v.email.$error && $v.email.$dirty}")
+    span.input-custom__placeholder(:class="{'input-custom__placeholder--animate':placeholderAnimate}")
+      | {{ placeholder ? placeholder : 'email' }}
+    input.input-custom.input-custom__animate(
+      v-model.lazy='$v.email.$model'
+      autocomplete='true'
+      type='email'
+      @click='placeholderAnimate=true'
+      @blur='unfocused'
+      @input='updateValue($event.target.value)')
+    span.input-custom__error-msg.animation-shake(v-if='!$v.email.required && $v.email.$dirty')
+      | Field is required
+    span.input-custom__error-msg.animation-shake(v-if='!$v.email.email')
+      | Email is not valid
+  //Text
+  label.input-custom__label(
+    v-else
+    :class="{'input-custom--error': ($v.text.$error && $v.text.$dirty) ,'input-custom--valid': !$v.text.$error && $v.text.$dirty}")
+
+    span.input-custom__placeholder(:class="{'input-custom__placeholder--animate':placeholderAnimate}")
+      | {{ placeholder ? placeholder : 'placeholder' }}
+
+    input.input-custom.input-custom__animate(
+      v-model='$v.text.$model'
+      type='text'
+      @click='placeholderAnimate=true'
+      @blur='unfocused'
+      @input='updateValue($event.target.value)')
+
+    span.input-custom__error-msg.animation-shake(v-if='!$v.text.required && $v.text.$dirty')
+      | Field is required
+
+    //Password
 </template>
 
 <script>
@@ -73,13 +91,16 @@ export default {
     }
   },
   props: {
-    placeholder: {
-      type: String,
-      default: null
+    typePassword: {
+      type: Boolean,
+      default: false
     },
-    type: {
-      type: String,
-      default: 'text'
+    typeEmail: {
+      type: Boolean,
+      default: false
+    },
+    placeholder: {
+      type: String
     },
     validate: {
       type: Boolean,
@@ -120,6 +141,7 @@ $label_top_padding: 15px;
 $label_bottom_padding: 20px;
 $invalid_color: red;
 $valid_color: green;
+$border_weight: 1px;
 
 .input-custom {
   transition: all .4s ease;
@@ -128,6 +150,7 @@ $valid_color: green;
     left-color: transparent;
     right-color: transparent;
     bottom-color: black;
+    bottom: $border_weight solid $color__dark
   };
   height: $input_height;
   color: $input__font-color;
@@ -138,6 +161,7 @@ $valid_color: green;
   }
 
   &__label {
+    display: flex;
     position: relative;
 
     padding-top: $label_top_padding;
@@ -166,7 +190,7 @@ $valid_color: green;
     font-size: 11px;
     position: absolute;
     color: $invalid_color;
-    bottom: 0;
+    bottom: 1px;
 
   }
 
@@ -201,7 +225,7 @@ $valid_color: green;
 
     input {
       color: $valid_color;
-      border-bottom: 1px solid $valid_color;
+      border-bottom: $border_weight solid $valid_color;
     }
   }
 
@@ -213,7 +237,7 @@ $valid_color: green;
 
     input {
       color: $invalid_color;
-      border-bottom: 1px solid $invalid_color;
+      border-bottom: $border_weight solid $invalid_color;
     }
   }
 }

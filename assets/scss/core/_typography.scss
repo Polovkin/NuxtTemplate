@@ -1,3 +1,21 @@
+$font__line-height: auto;
+
+$font__weight: normal;
+$font__family: 'SourceCodePro';
+$font__style: sans-serif;
+$font__file-name: 'SourceCodePro-';
+$font__path: '~@/assets/fonts/#{$font__file-name}';
+$font__ext: (woff2, woff);
+$font__types: (
+                ('Light', 300, normal),
+                ('Bold', bold, normal),
+                ('Regular', normal, normal),
+);
+
+@each $name, $weight, $style in $font__types {
+  @include font-face($font__family, $font__path+$name, $weight, $style, $font__ext);
+}
+
 html {
   font-size: $font__size;
   line-height: $font__line-height;
@@ -127,7 +145,6 @@ input[type='submit']:focus {
 }
 
 
-
 select {
   border: 1px solid #ccc;
 
@@ -157,11 +174,14 @@ form {
     color: $color__font--primary;
   }
 }
+
 label {
   display: block;
 }
+
 input {
   box-shadow: none;
+  outline: none;
 
   &:-webkit-autofill,
   &:-webkit-autofill:focus,
