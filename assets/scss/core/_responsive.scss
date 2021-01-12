@@ -9,7 +9,7 @@ $max-width__desktop-hd-min    : 1440px;
 
 $width__laptop                : 1366px;
 //XL
-$width__laptop-min            : 1210px;
+$width__laptop-min            : 1280px;
 $max-width__desktop-min       : 1140px;
 // LG
 $width__tablet-land           : 1024px;
@@ -44,7 +44,7 @@ $var-tablet__small            : ($width__laptop-min   $width__laptop-min) (orien
 $tablet__all                  :  $width__tablet-port   $width__laptop-min ;
 $tablet__landscape-large      :  $var-tablet__large,$var-tablet__small;
 $tablet__landscape            :  ($width__tablet-land, $width__laptop-min)  (orientation landscape);
-$tablet__portrait             :  ($width__tablet-port  $width__tablet-land) (orientation portrait);
+$tablet__portrait             :  screen ($width__tablet-port  $width__tablet-land) (orientation portrait);
 
 $phone__all                   : $width__min            ($width__tablet-port - 1);
 $phone__landscape             : $portrait__all         (max-height 450px);
