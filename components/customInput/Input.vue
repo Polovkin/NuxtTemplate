@@ -1,5 +1,8 @@
 <template lang="pug">
-  label.input-custom(:for="inputId")
+  label.input-custom(
+    :for="inputId"
+    :class="{'input-custom--error': invalid ,'input-custom--valid':valid}")
+
     span.input-custom__placeholder(:class="{'input-custom__placeholder--animate':isActive}")
       | {{ placeholder }}
     template(v-if="isTextarea")
@@ -50,16 +53,15 @@
       )
     template(v-if="isRequired")
       span.input-custom__error-msg.animation-shake(v-if="!$v[validatorType].required && $v[validatorType].$dirty")
-        | {{name}} is required
-
+        | Field is required
+    template(v-if="lengthValidatorTypes")
+      span.input-custom__error-msg.animation-shake(v-if='!$v[validatorType].minLength')
+        | {{name}} must have at least {{ $v[validatorType].$params.minLength.min }} letters.
+      span.input-custom__error-msg.animation-shake(v-if='!$v[validatorType].maxLength')
+        | {{name}} must have no more than {{ $v[validatorType].$params.maxLength.max }} letters.
     template(v-if="isEmail")
       span.input-custom__error-msg.animation-shake(v-if='!$v.email.email')
         | Email is not valid
-    template(v-if="isPassword")
-      span.input-custom__error-msg.animation-shake(v-if='!$v.password.minLength')
-        | Password must have at least {{ $v.password.$params.minLength.min }} letters.
-      span.input-custom__error-msg.animation-shake(v-if='!$v.password.maxLength')
-        | Password must have no more than {{ $v.password.$params.maxLength.max }} letters.
 
 </template>
 
@@ -136,7 +138,8 @@ export default {
       simpleText: '',
       textarea: '',
       email: '',
-      password: ''
+      password: '',
+      lengthTypes: ['textarea', 'simpleText', 'password']
     }
   },
   computed: {
@@ -145,14 +148,31 @@ export default {
     },
     validatorType () {
       return this.isTextarea ? 'textarea' : this.isEmail ? 'email' : this.isPassword ? 'password' : 'simpleText'
+    },
+    lengthValidatorTypes () {
+      return 'minLength' in this.$v[this.validatorType] && 'maxLength' in this.$v[this.validatorType]
+    },
+    valid () {
+      const elem = this.$v[this.validatorType]
+      return !elem.$error && elem.$dirty
+    },
+    invalid () {
+      const elem = this.$v[this.validatorType]
+      if (this.isRequired) {
+        return elem.$error && elem.$dirty
+      } else {
+        return !elem.minLength || !elem.maxLength
+      }
     }
+  },
+  mounted () {
+
   },
   methods: {
     focus () {
       this.isActive = true
     },
     focusOut (e) {
-      console.log(this.$v[this.validatorType].$params.minLength)
       this.$v.$touch()
       const value = e.target.value
       this.isActive = !!value
@@ -166,7 +186,7 @@ $input__text: black;
 $input__text-size: 16px;
 $input__placeholder: rgba($input__text, .3);
 $input__error: red;
-$input__valid-: green;
+$input__valid: green;
 $input__border: black;
 
 $input__height: 40px;
@@ -188,6 +208,7 @@ $input__height: 40px;
     transform: translate3d(4px, 0, 0);
   }
 }
+
 %reset {
   font-size: $input__text-size;
   padding: 0;
@@ -223,16 +244,38 @@ $input__height: 40px;
     };
   }
 
+  &--error {
+    .input-custom__placeholder {
+      color: $input__error;
+    }
+
+    input, textarea {
+      color: $input__error;
+      border-bottom-color: $input__error;
+    }
+  }
+
+  &--valid {
+    .input-custom__placeholder {
+      color: $input__valid;
+    }
+
+    input, textarea {
+      color: $input__valid;
+      border-bottom-color: $input__valid;
+    }
+  }
+
   &__placeholder {
     transform-origin: left;
-    transform: translate(0, $input__height / 1.5) scale(.8);
+    transform: translate(0, $input__height / 1.5) scale(1);
     grid-area: placeholder;
     color: $input__placeholder;
     transition: all .3s ease-in;
 
     &--animate {
       color: $input__text;
-      transform: translate(0) scale(1);
+      transform: translate(0) scale(.7);
     }
   }
 
@@ -266,7 +309,7 @@ $input__height: 40px;
   }
 
   &__error-msg {
-    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
     font-size: 11px;
     text-transform: uppercase;
     font-weight: bold;

@@ -14,7 +14,6 @@
         :name="'lastName'",
         :placeholder="'Enter last name'"
         :form-id="'form'"
-        is-required
       )
       Input(
         :name="'email'",
@@ -30,7 +29,7 @@
         :name="'message'",
         :placeholder="'Enter message'"
         :form-id="'form'"
-        is-textarea is-required)
+        is-textarea)
       Input(
         :name="'password'",
         :placeholder="'Enter password'"
