@@ -42,7 +42,7 @@ $var-tablet__large            : ($width__laptop-min   $width__laptop) (height 80
 $var-tablet__small            : ($width__laptop-min   $width__laptop-min) (orientation landscape);
 
 $tablet__all                  :  $width__tablet-port   $width__laptop-min ;
-$tablet__landscape-large      :  $var-tablet__large,$var-tablet__small;
+$tablet__landscape-large      :  $var-tablet__large;
 $tablet__landscape            :  ($width__tablet-land, $width__laptop-min)  (orientation landscape);
 $tablet__portrait             :  screen ($width__tablet-port  $width__tablet-land) (orientation portrait);
 

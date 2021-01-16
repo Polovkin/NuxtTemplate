@@ -208,96 +208,96 @@ export default {
 <style lang="scss">
 
 .input-custom {
-    $label_top_padding: 15px;
-    $label_bottom_padding: 20px;
-    $invalid_color: red;
-    $valid_color: green;
+  $label_top_padding: 15px;
+  $label_bottom_padding: 20px;
+  $invalid_color: red;
+  $valid_color: green;
+  transition: all .4s ease;
+
+  &__animate {
+    position: relative;
+    z-index: z(content-bg);
+  }
+
+  &__label {
+    position: relative;
+
+    padding-top: $label_top_padding;
+    padding-bottom: $label_bottom_padding;
+  }
+
+  &__placeholder {
+
+    z-index: z(content);
+    //font-size: $input__font-size;
+    //color: $input__placeholder-color;
+
+    top: 18px + $label_bottom_padding;
+    position: absolute;
     transition: all .4s ease;
+    transform: translateY(0);
 
-    &__animate {
-        position: relative;
-        z-index: z(content-bg);
+    &--animate {
+      //color: green;
+      font-size: 10px;
+      transform: translate(0%, -20px);
+    }
+  }
+
+  &__error-msg {
+    font-size: 11px;
+    position: absolute;
+    color: $invalid_color;
+    bottom: 0;
+
+  }
+
+  &__eye {
+    cursor: pointer;
+    z-index: z(content);
+    position: absolute;
+    top: 18px + $label_bottom_padding;
+    right: 1rem;
+    display: block;
+    @include size(20px);
+    background: {
+      size: contain;
+      image: url("/images/icons/eye-hide.svg");
+    };
+
+    &--hidden {
+      background-image: url("/images/icons/eye.svg") !important;
+    }
+  }
+
+  &--active {
+    border: {
+      //bottom: 1px solid green;
+    };
+  }
+
+  &--valid {
+    .input-custom__placeholder {
+      color: $valid_color;
     }
 
-    &__label {
-        position: relative;
+    input {
+      color: $valid_color;
+      border-bottom: 1px solid $valid_color;
+    }
+  }
 
-        padding-top: $label_top_padding;
-        padding-bottom: $label_bottom_padding;
+  &--error {
+
+    .input-custom__placeholder {
+      color: $invalid_color;
     }
 
-    &__placeholder {
-
-        z-index: z(content);
-        //font-size: $input__font-size;
-        //color: $input__placeholder-color;
-
-        top: 18px + $label_bottom_padding;
-        position: absolute;
-        transition: all .4s ease;
-        transform: translateY(0);
-
-        &--animate {
-            //color: green;
-            font-size: 10px;
-            transform: translate(0%, -20px);
-        }
+    input {
+      color: $invalid_color;
+      border-bottom: 1px solid $invalid_color;
     }
-
-    &__error-msg {
-        font-size: 11px;
-        position: absolute;
-        color: $invalid_color;
-        bottom: 0;
-
-    }
-
-    &__eye {
-        cursor: pointer;
-        z-index: z(content);
-        position: absolute;
-        top: 18px + $label_bottom_padding;
-        right: 1rem;
-        display: block;
-        @include size(20px);
-        background: {
-            size: contain;
-            image: url("/images/icons/eye-hide.svg");
-        };
-
-        &--hidden {
-            background-image: url("/images/icons/eye.svg") !important;
-        }
-    }
-
-    &--active {
-        border: {
-            //bottom: 1px solid green;
-        };
-    }
-
-    &--valid {
-        .input-custom__placeholder {
-            color: $valid_color;
-        }
-
-        input {
-            color: $valid_color;
-            border-bottom: 1px solid $valid_color;
-        }
-    }
-
-    &--error {
-
-        .input-custom__placeholder {
-            color: $invalid_color;
-        }
-
-        input {
-            color: $invalid_color;
-            border-bottom: 1px solid $invalid_color;
-        }
-    }
+  }
 }
 
 </style>
