@@ -3,11 +3,13 @@
     Navbar
     h1 asd
     form#form(@submit.prevent="sendForm" ref="form")
-      // Name
+      p {{name}} sad
+      p {{textarea}} asd
       Input(
         :name="'name'",
         :placeholder="'Enter name'"
         :form-id="'form'"
+        v-model="name"
         is-required
       )
       Input(
@@ -29,6 +31,7 @@
         :name="'message'",
         :placeholder="'Enter message'"
         :form-id="'form'"
+        v-model="textarea"
         is-textarea)
       Input(
         :name="'password'",
@@ -55,6 +58,12 @@ export default {
   components: {
     Navbar, InputAnimate, ButtonWave, Input
   },
+  data() {
+    return {
+      name: '',
+      textarea: ''
+    }
+  },
   methods: {
     sendForm() {
       const formData = new FormData(this.$refs.form)
@@ -74,7 +83,9 @@ button {
 label {
   margin-bottom: 30px;
 }
-
+#form {
+  color: red;
+}
 h1 {
 
   color: $color__primary;

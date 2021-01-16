@@ -176,6 +176,11 @@ export default {
       this.$v.$touch()
       const value = e.target.value
       this.isActive = !!value
+      if (!this.$v[this.validatorType].$invalid) {
+        this.$emit('input', value)
+      } else {
+        this.$emit('input', null)
+      }
     }
   }
 }
