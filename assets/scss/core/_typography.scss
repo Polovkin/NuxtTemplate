@@ -3,10 +3,11 @@
 }
 
 html {
-  font-size: $font__size;
-  line-height: $font__line-height;
 
   height: 100%;
+
+  font-size: $font__size;
+  line-height: $font__line-height;
   @include breakpoint($desktop__laptop) {
     font-size: 16px;
   }
@@ -22,14 +23,14 @@ html {
 }
 
 body {
-  font-family: $font__family, $font__style;
-  font-size: $font__size;
-  font-weight: $font__weight;
 
   margin: 0;
   padding: 0;
 
   color: $color__font--secondary;
+  font-family: $font__family, $font__style;
+  font-size: $font__size;
+  font-weight: $font__weight;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -62,9 +63,12 @@ li {
 }
 
 a {
-  transition: .3s;
-  text-decoration: none;
   color: $color__font--primary;
+  font-size: 20px;
+  line-height: 27px;
+  text-decoration: none;
+
+  transition: .3s;
 
   &:hover,
   &:focus {
@@ -72,18 +76,15 @@ a {
 
     outline: 0;
   }
-}
-
-
-a {
-  font-size: 20px;
-  line-height: 27px;
 
   @include breakpoint($tablet__all) {
     font-size: 18px;
     line-height: 24px;
   }
 }
+
+
+
 
 main {
   overflow: hidden;
@@ -93,11 +94,9 @@ main {
 img {
   max-width: 100%;
 
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   pointer-events: none;
+
+  user-select: none;
 }
 
 embed,
@@ -109,9 +108,12 @@ textarea {
 
 .container {
   flex: 0 0 auto;
+
+  width: 100%;
+
   margin: 0 auto;
   padding: 0 15px;
-  width: 100%;
+
   transition: all $animation-fast;
   @include breakpoint(min-width $width__desktop-hd + 1) {
     max-width: $width__desktop-hd-min;

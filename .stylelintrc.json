@@ -18,7 +18,10 @@
         },
         "at-rules",
         "declarations",
-
+        {
+          "type": "rule",
+          "selector": "^."
+        },
         {
           "type": "rule",
           "selector": "^&::(before|after)"
@@ -31,10 +34,7 @@
           "type": "rule",
           "selector": "^&_"
         },
-        {
-          "type": "rule",
-          "selector": "^."
-        },
+
         {
           "type": "at-rule",
           "name": "supports"
@@ -300,7 +300,7 @@
     "indentation": 2,
     "string-quotes": "single",
     "no-duplicate-selectors": true,
-    "color-hex-case": "upper",
+    "color-hex-case": "lower",
     "color-hex-length": "short",
     "color-named": "never",
     "selector-attribute-quotes": "always",
@@ -315,7 +315,11 @@
     "selector-pseudo-element-colon-notation": "single",
     "selector-pseudo-class-parentheses-space-inside": "never",
     "selector-no-vendor-prefix": true,
-    "media-feature-name-no-vendor-prefix": true
+    "media-feature-name-no-vendor-prefix": true,
+    "selector-max-specificity": "1,1,0",
+    "block-no-empty": true,
+    "no-descending-specificity": true,
+    "selector-max-class": 2
   }
 }
 

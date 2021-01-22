@@ -1,16 +1,19 @@
 //Buttons
 
 button {
-  font: inherit;
 
   padding: 0;
 
-  cursor: pointer;
+  border: none;
+
+  background-color: transparent;
 
   color: inherit;
-  border: none;
-  background-color: transparent;
+  font: inherit;
+
+  cursor: pointer;
 }
+
 
 button:hover,
 input[type='button']:hover,
@@ -31,24 +34,25 @@ input[type='submit']:focus {
 }
 
 label {
-  font-size: $input__font-size;
 
   display: block;
 
   color: $input__font-color;
+  font-size: $input__font-size;
 }
 
 input {
-  font-size: inherit;
+  box-shadow: none;
 
   color: inherit;
+  font-size: inherit;
+
   outline: none;
-  box-shadow: none;
 
   &:-webkit-autofill,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:hover {
-    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+    box-shadow: 0 0 0 1000px #fff inset !important;
   }
 
   &[type='text'],
@@ -80,39 +84,30 @@ input {
   }
 }
 
-form {
-
-  label {
-    width: 100%;
-  }
-
-  input,
-  textarea {
-    font-family: $font__family;
-    font-size: rem($font__size);
-
-    color: $color__font--primary;
-  }
-}
-
-
-textarea {
-  width: 100%;
-
-  resize: none;
-
-  outline: 0;
-
-  &:focus {
-    outline: 0;
-  }
-}
-
 
 select {
   border: 1px solid #ccc;
 
   &:focus {
     outline: 0;
+  }
+}
+
+form {
+
+  label {
+    width: 100%;
+  }
+
+  textarea {
+    width: 100%;
+
+    color: $color__font--primary;
+    font-family: $font__family;
+    font-size: rem($font__size);
+
+    outline: 0;
+
+    resize: none;
   }
 }

@@ -5,44 +5,44 @@
     form#form(@submit.prevent="sendForm" ref="form")
       p {{name}} sad
       p {{textarea}} asd
-      Input(
-        :name="'name'",
-        :placeholder="'Enter name'"
-        :form-id="'form'"
-        v-model="name"
-        is-required
-      )
-      Input(
-        :name="'lastName'",
-        :placeholder="'Enter last name'"
-        :form-id="'form'"
-      )
-      Input(
-        :name="'email'",
-        :placeholder="'Enter email'"
-        :form-id="'form'"
-        is-email is-required )
-      Input(
-        :name="'emailRepeat'",
-        :placeholder="'Repeat email'"
-        :form-id="'form'"
-        is-email is-required )
-      Input(
-        :name="'message'",
-        :placeholder="'Enter message'"
-        :form-id="'form'"
-        v-model="textarea"
-        is-textarea)
-      Input(
-        :name="'password'",
-        :placeholder="'Enter password'"
-        :form-id="'form'"
-        is-password is-required)
-      //Input(
-      //  :name="'passwordRepeat'",
-      //  :placeholder="'Repeat password'"
-      //  :form-id="'form'"
-      //  is-password is-required)
+      .block
+        .block1
+        .block2
+        .block3
+        .block4
+        //Input(
+        //  :name="'name'",
+        //  :placeholder="'Enter name'"
+        //  :form-id="'form'"
+        //  v-model="name"
+        //  is-required
+        //)
+        //Input(
+        //  :name="'lastName'",
+        //  :placeholder="'Enter last name'"
+        //  :form-id="'form'"
+        //)
+        //Input(
+        //  :name="'email'",
+        //  :placeholder="'Enter email'"
+        //  :form-id="'form'"
+        //  is-email is-required )
+        //Input(
+        //  :name="'emailRepeat'",
+        //  :placeholder="'Repeat email'"
+        //  :form-id="'form'"
+        //  is-email is-required )
+        //Input(
+        //  :name="'message'",
+        //  :placeholder="'Enter message'"
+        //  :form-id="'form'"
+        //  v-model="textarea"
+        //  is-textarea)
+        //Input(
+        //  :name="'password'",
+        //  :placeholder="'Enter password'"
+        //  :form-id="'form'"
+        //  is-password is-required)
 
       button(type="submit") submit
 </template>
@@ -58,14 +58,14 @@ export default {
   components: {
     Navbar, InputAnimate, ButtonWave, Input
   },
-  data () {
+  data() {
     return {
       name: '',
       textarea: ''
     }
   },
   methods: {
-    sendForm () {
+    sendForm() {
       const formData = new FormData(this.$refs.form)
 
       for (const key of formData.keys()) {
@@ -76,30 +76,47 @@ export default {
 }
 </script>
 <style lang="scss">
-button {
-  color: $color__primary;
-}
+$areas: block1 block2 block3 block4;
 
-label {
-  margin-bottom: 30px;
-}
+.block {
 
-#form {
-  color: red;
-}
 
-h1 {
+  display: grid;
+  grid-template-areas: '#{$areas}';
 
-  color: $color__primary;
+  background-color: rgba(#008000, .5);
 
-  @include breakpoint($tablet__all) {
-    color: purple;
+
+  &1 {
+    grid-area: nth($areas,1);
+
+    background-color: #f00;
   }
-  @include breakpoint($tablet__landscape) {
-    color: yellow;
+
+  &2 {
+    grid-area: nth($areas,2);
+
+    background-color: #0f6;
   }
-  @include breakpoint($tablet__portrait) {
-    color: green;
+
+  &3 {
+    grid-area: nth($areas,3);
+
+    background-color: #701688;
+  }
+
+  &4{
+    grid-area: nth($areas,4);
+
+    background-color: #000;
+  }
+
+  div {
+    @include size(50px);
+    margin: 10px;
+
   }
 }
+
+
 </style>
