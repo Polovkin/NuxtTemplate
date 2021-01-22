@@ -58,14 +58,14 @@ export default {
   components: {
     Navbar, InputAnimate, ButtonWave, Input
   },
-  data() {
+  data () {
     return {
       name: '',
       textarea: ''
     }
   },
   methods: {
-    sendForm() {
+    sendForm () {
       const formData = new FormData(this.$refs.form)
 
       for (const key of formData.keys()) {
@@ -83,9 +83,11 @@ button {
 label {
   margin-bottom: 30px;
 }
+
 #form {
   color: red;
 }
+
 h1 {
 
   color: $color__primary;

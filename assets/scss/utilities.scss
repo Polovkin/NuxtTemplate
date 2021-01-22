@@ -1,39 +1,42 @@
 
 .custom-checkbox {
+  margin: 10px 0 0 20px;
+  opacity: 0;
   position: absolute;
   z-index: -1;
-  opacity: 0;
-  margin: 10px 0 0 20px;
 
   & + label {
-    position: relative;
-    padding: 0 0 0 30px;
+
     cursor: pointer;
+    padding: 0 0 0 30px;
+    position: relative;
 
-    &:before {
+
+    &::before {
       @include pseudoElement(20px);
-      top: 0;
+      border: 1px solid black;
       left: 0;
+      top: 0;
 
-      transition: .2s;
-      border:1px solid black;
+      transition: 0.2s;
     }
 
-    &:after {
+    &::after {
       @include pseudoElement(12px);
-      top: 4px;
-      left: 4px;
       background: $color__light;
-      transition: .2s;
+      left: 4px;
+      top: 4px;
+      transition: 0.2s;
     }
   }
 
+
   &:checked {
-    & + label:before {
+    & + label::before {
       //background: #fff;
     }
 
-    & + label:after {
+    & + label::after {
       background: black;
     }
   }
@@ -44,10 +47,10 @@
 //  span.slider.round
 
 .switch {
-  position: relative;
-  display: inline-block;
   width: 60px;
   height: 34px;
+  display: inline-block;
+  position: relative;
 
   input {
     width: 0;
@@ -58,30 +61,30 @@
 }
 
 .slider {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  cursor: pointer;
-  transition: .4s;
   background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
 
-  &:before {
-    position: absolute;
-    bottom: 4px;
-    left: 4px;
+  &::before {
     width: 26px;
     height: 26px;
-    content: '';
-    transition: .4s;
     background-color: white;
+    bottom: 4px;
+    content: '';
+    left: 4px;
+    position: absolute;
+    transition: 0.4s;
   }
 
   &.round {
     border-radius: 34px;
 
-    &:before {
+    &::before {
       border-radius: 50%;
     }
   }
@@ -91,7 +94,7 @@ input {
   &:checked + .slider {
     background-color: #2196f3;
 
-    &:before {
+    &::before {
       transform: translateX(26px);
     }
   }

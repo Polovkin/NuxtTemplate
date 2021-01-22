@@ -123,14 +123,6 @@ export default {
       type: String,
       default: ''
     },
-    minLen: {
-      type: Number,
-      default: 3
-    },
-    maxLen: {
-      type: Number,
-      default: 20
-    }
   },
   data () {
     return {
