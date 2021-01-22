@@ -17,6 +17,6 @@ export default {
 
 <style>
 .polova {
-  color: red !important;
+    color: red !important;
 }
 </style>

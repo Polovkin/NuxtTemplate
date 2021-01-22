@@ -58,8 +58,11 @@ export default {
 .material-btn {
 
     position: relative;
+
     overflow: hidden;
+
     font-weight: 500;
+
     cursor: pointer;
 
     &--active .wave {
@@ -76,16 +79,20 @@ export default {
     height: 15px;
 
     border-radius: 100%;
-    transform: scale(0);
+
     background: rgba($color__dark, .5);
+
+    transform: scale(0);
 
 }
 
 @keyframes wave-animation {
+
     from {
-        opacity: 1;
         transform: scale(0);
+        opacity: 1;
     }
+
     to {
         transform: scale(10);
         opacity: 0;
@@ -93,17 +100,21 @@ export default {
 }
 
 @keyframes slide-animation {
+
     0% {
-        opacity: 1;
         transform: translateX(0%);
+        opacity: 1;
     }
+
     50% {
         transform: translateX(150%);
         opacity: 0;
     }
+
     51% {
         transform: translate(-100%);
     }
+
     100% {
         transform: translate(0%);
         opacity: 1;

@@ -31,6 +31,7 @@
     "eslint-plugin-nuxt": "^2.0.0",
     "husky": "^4.3.6",
     "postcss-sort-media-queries": "^1.7.26",
+    "prettier": "^2.2.1",
     "pug": "^3.0.0",
     "pug-plain-loader": "^1.1.0",
     "sass": "^1.30.0",
@@ -38,8 +39,8 @@
     "sort-css-media-queries": "^1.5.2",
     "stylelint": "^13.9.0",
     "stylelint-config-idiomatic-order": "^8.1.0",
-    "stylelint-config-sass-guidelines": "^7.1.0",
-    "stylelint-order": "^4.1.0"
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.18.0"
   },
   "config": {
     "commitizen": {

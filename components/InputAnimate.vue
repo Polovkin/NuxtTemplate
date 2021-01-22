@@ -139,21 +139,16 @@ export default {
 
 $label_top_padding: 15px;
 $label_bottom_padding: 20px;
-$invalid_color: red;
-$valid_color: green;
+$invalid_color: #F00;
+$valid_color: #008000;
 $border_weight: 1px;
 
 .input-custom {
-  transition: all .4s ease;
-  border: {
-    top-color: transparent;
-    left-color: transparent;
-    right-color: transparent;
-    bottom-color: black;
-    bottom: $border_weight solid $color__dark
-  };
   height: $input_height;
+
   color: $input__font-color;
+
+  transition: all .4s ease;
 
   &__animate {
     position: relative;
@@ -161,56 +156,71 @@ $border_weight: 1px;
   }
 
   &__label {
-    display: flex;
     position: relative;
+
+    display: flex;
 
     padding-top: $label_top_padding;
     padding-bottom: $label_bottom_padding;
   }
 
   &__placeholder {
-
-    z-index: z(content);
-    font-size: $input__font-size;
-    color: $input__placeholder-color;
+    position: absolute;
 
     top: 18px + $label_bottom_padding;
-    position: absolute;
-    transition: all .4s ease;
+
+    z-index: z(content);
+
+    color: $input__placeholder-color;
+    font-size: $input__font-size;
+
     transform: translateY(0);
+
+    transition: all .4s ease;
 
     &--animate {
       color: $input__font-color;
       font-size: 10px;
+
       transform: translate(0%, -20px);
     }
   }
 
   &__error-msg {
-    font-size: 11px;
     position: absolute;
-    color: $invalid_color;
     bottom: 1px;
+
+    color: $invalid_color;
+    font-size: 11px;
 
   }
 
   &__eye {
-    cursor: pointer;
-    z-index: z(content);
+    @include size(20px);
     position: absolute;
     top: 18px + $label_bottom_padding;
     right: 1rem;
+    z-index: z(content);
+
     display: block;
-    @include size(20px);
+
+    cursor: pointer;
     background: {
       size: contain;
-      image: url("#{$img_path}/icons/eye.svg?data");
+      image: url('#{$img_path}/icons/eye.svg?data');
     };
 
     &--hidden {
-      background-image: url("#{$img_path}/icons/eye-hide.svg?data") !important;
+      background-image: url('#{$img_path}/icons/eye-hide.svg?data') !important;
     }
   }
+  border: {
+    bottom: $border_weight solid $color__dark;
+    top-color: transparent;
+    left-color: transparent;
+    right-color: transparent;
+    bottom-color: black;
+  };
 
   &--active {
     border: {
@@ -219,13 +229,15 @@ $border_weight: 1px;
   }
 
   &--valid {
+
     .input-custom__placeholder {
       color: $valid_color;
     }
 
     input {
-      color: $valid_color;
       border-bottom: $border_weight solid $valid_color;
+
+      color: $valid_color;
     }
   }
 
@@ -236,8 +248,9 @@ $border_weight: 1px;
     }
 
     input {
-      color: $invalid_color;
       border-bottom: $border_weight solid $invalid_color;
+
+      color: $invalid_color;
     }
   }
 }
