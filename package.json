@@ -8,7 +8,8 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token 7fe4ad82ba41"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
@@ -33,6 +34,7 @@
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.2.2",
     "breakpoint-sass": "^2.7.1",
+    "chromatic": "^5.6.3",
     "cssnano": "^4.1.10",
     "cz-customizable": "^6.3.0",
     "eslint": "^7.16.0",
