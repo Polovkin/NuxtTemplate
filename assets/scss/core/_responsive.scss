@@ -2,35 +2,32 @@
 
 
 //Breakpoints
+$width__desktop-2k            : 2560px;
+
 $width__desktop-hd            : 1920px;
 
 $width__desktop-hd-min        : 1600px;
-$max-width__desktop-hd-min    : 1440px;
 
 $width__laptop                : 1366px;
 //XL
 $width__laptop-min            : 1280px;
-$max-width__desktop-min       : 1140px;
 // LG
 $width__tablet-land           : 1024px;
-$max-width__tablet-land       : 960px;
 //MD
-$width__tablet-port           : 750px;
-$max-width__tablet-port       : 720px;
+$width__tablet-port           : 768px;
 //SM
 $width__mobile-max            : 576px;
-$max-width__mobile-max        : 540px;
 //XS
 $width__mobile-min            : 320px;
 //Min
-$width__min                   : 100px;
+$width__min                   : 0px;
 
 
 
 
 //min 1200
 $mobile__all                  : $width__laptop-min;
-$portrait__all                : $max-width__tablet-land;
+$portrait__all                : $width__tablet-land;
 
 //Desktop
 $desktop__all                 : $width__laptop-min;
