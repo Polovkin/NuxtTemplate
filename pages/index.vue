@@ -1,10 +1,10 @@
 <template>
-
-    <h1>test</h1>
+  <h1>test</h1>
 
 </template>
 
 <script>
+
 
 import Input from '~/components/customInput/Input'
 import Navbar from '~/components/Navbar'
@@ -13,7 +13,10 @@ import InputAnimate from '~/components/InputAnimate'
 
 export default {
   components: {
-    Navbar, InputAnimate, ButtonWave, Input
+    Navbar,
+    InputAnimate,
+    ButtonWave,
+    Input
   },
   data () {
     return {
@@ -36,7 +39,7 @@ export default {
 $areas: block1 block2 block3 block4;
 
 .block {
- @include breakpoint ($desktop__all) {
+  @include breakpoint($desktop__all) {
 
   }
 }
