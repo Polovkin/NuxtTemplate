@@ -21,7 +21,8 @@ export default {
   components: true,
 
   buildModules: [
-    '@nuxtjs/svg'
+    '@nuxtjs/svg',
+    '@nuxtjs/device',
   ],
 
   modules: [
