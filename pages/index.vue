@@ -3,14 +3,16 @@
     <div v-if="$device.isDesktop">
       Desktop
     </div>
-    <div v-else-if="$device.isTablet">
+    <div v-if="$device.isTablet">
       Tablet
     </div>
-    <div v-else>
+    <div v-if="$device.isCustom">
+      Tablet asdsad
+    </div>
+    <div v-if="$device.isMobile">
       Mobile
     </div>
   </div>
-
 </template>
 
 <script>
@@ -21,6 +23,7 @@ import ButtonWave from '~/components/ButtonWave'
 import InputAnimate from '~/components/InputAnimate'
 
 export default {
+
   components: {
     Navbar, InputAnimate, ButtonWave, Input
   },
@@ -29,6 +32,9 @@ export default {
       name: '',
       textarea: ''
     }
+  },
+  mounted() {
+    console.log(this.$device);
   },
   methods: {
     sendForm () {
