@@ -6,7 +6,7 @@
     <div v-if="$device.isTablet">
       Tablet
     </div>
-    <div v-if="$device.isCustom">
+    <div v-if="$device.isTabletCustom">
       Tablet asdsad
     </div>
     <div v-if="$device.isMobile">
