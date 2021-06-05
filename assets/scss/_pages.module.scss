@@ -43,14 +43,21 @@ $areas: block1 block2 block3 block4;
     }
   }
   background-color: gainsboro;
-  @include breakpoint($tablet__all) {
-    background: red;
+
+  @include breakpoint($desktop__all) {
+    background-color: green;
   }
 
   @include breakpoint($phone__all) {
     background-color: blue;
   }
+  @include breakpoint($tablet__landscape) {
+    background-color: gray;
+  }
+  @include breakpoint($tablet__all) {
+    background-color: red;
+  }
   @include breakpoint($tablet__portrait) {
-    background-color: black;
+    background-color: yellow;
   }
 }
