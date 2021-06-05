@@ -75,7 +75,14 @@ export default {
         }
       }
 
-    }
+    },
+    loaders: {
+      cssModules: {
+        modules: {
+          localIdentName: '[name]__[local]-[hash:base64:8]'
+        }
+      }
+    },
   },
   device: {
     refreshOnResize: true

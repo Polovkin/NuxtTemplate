@@ -31,24 +31,26 @@ $areas: block1 block2 block3 block4;
     }
   }
   // polova
-  div {
-    @include size(100%);
-    @for $i from 1 through 3 {
-      &:nth-of-type(#{$i}) {
-        grid-area: div#{$i};
-      }
-    }
-    background-color: gainsboro;
-    @include breakpoint($tablet__all) {
-      background: red;
-    }
 
-    @include breakpoint($phone__all) {
-      background-color: blue;
-    }
-    @include breakpoint($tablet__portrait) {
-      background-color: black;
+
+}
+
+.elem {
+  @include size(100%);
+  @for $i from 1 through 3 {
+    &:nth-of-type(#{$i}) {
+      grid-area: div#{$i};
     }
   }
+  background-color: gainsboro;
+  @include breakpoint($tablet__all) {
+    background: red;
+  }
 
+  @include breakpoint($phone__all) {
+    background-color: blue;
+  }
+  @include breakpoint($tablet__portrait) {
+    background-color: black;
+  }
 }

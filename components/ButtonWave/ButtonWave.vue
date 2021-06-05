@@ -1,11 +1,13 @@
 <template>
   <button
     ref="button"
-    class="material-btn"
-    :class="btnClass"
+    :class="[$style.button,btnClass]"
     @mousedown="mousedown"
   >
-    <span ref="wave" class="wave" />
+    <span
+      ref="wave"
+      :class="$style.wave"
+    />
     <slot />
   </button>
 </template>
@@ -35,7 +37,7 @@ export default {
   },
   methods: {
     mousedown (event) {
-      const className = 'material-btn--active'
+      const className = this.$style.active
       if (this.button.classList.contains(className)) {
         this.button.classList.remove(className)
       }
@@ -51,73 +53,9 @@ export default {
 }
 </script>
 
-<style scoped
+<style module
        lang="scss">
+@import "button-wave.module";
 
-.material-btn {
-
-  position: relative;
-
-  overflow: hidden;
-
-  font-weight: 500;
-
-  cursor: pointer;
-
-  &--active .wave {
-    animation: wave-animation .8s;
-  }
-}
-
-.wave {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 15px;
-  height: 15px;
-
-  border-radius: 100%;
-
-  background: rgba($color__dark, .5);
-
-  transform: scale(0);
-
-}
-
-@keyframes wave-animation {
-
-  from {
-    transform: scale(0);
-    opacity: 1;
-  }
-
-  to {
-    transform: scale(10);
-    opacity: 0;
-  }
-}
-
-@keyframes slide-animation {
-
-  0% {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-
-  50% {
-    transform: translateX(150%);
-    opacity: 0;
-  }
-
-  51% {
-    transform: translate(-100%);
-  }
-
-  100% {
-    transform: translate(0%);
-    opacity: 1;
-  }
-}
 
 </style>
