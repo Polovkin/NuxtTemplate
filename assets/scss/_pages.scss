@@ -1,0 +1,54 @@
+$areas: block1 block2 block3 block4;
+
+.test {
+  display: grid;
+  grid-gap: 30px;
+  grid: {
+    template: {
+      columns: repeat(2, 1fr);
+      rows: 150px 200px;
+      areas: 'div1 div1' ' div2 div3';
+    }
+  }
+  @include breakpoint($tablet__all) {
+    grid: {
+      gap: 25px;
+      template: {
+        columns: repeat(2, 1fr);
+        rows: 150px 200px;
+        areas: 'div1 div1' ' div2 div3';
+      }
+    }
+  }
+  @include breakpoint($phone__all) {
+    grid: {
+      gap: 15px;
+      template: {
+        columns: repeat(2, 1fr);
+        rows: 150px 200px;
+        areas: 'div1 div1' ' div2 div3';
+      }
+    }
+  }
+  // polova
+  div {
+    @include size(100%);
+    @for $i from 1 through 3 {
+      &:nth-of-type(#{$i}) {
+        grid-area: div#{$i};
+      }
+    }
+    background-color: gainsboro;
+    @include breakpoint($tablet__all) {
+      background: red;
+    }
+
+    @include breakpoint($phone__all) {
+      background-color: blue;
+    }
+    @include breakpoint($tablet__portrait) {
+      background-color: black;
+    }
+  }
+
+}

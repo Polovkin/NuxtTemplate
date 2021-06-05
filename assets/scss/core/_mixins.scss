@@ -10,8 +10,6 @@
 }
 
 @mixin size($width,$height: $width) {
-  display: flex;
-
   width: $width;
   height: $height;
 }
