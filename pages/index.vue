@@ -17,15 +17,14 @@
 
 <script>
 
-import Input from '~/components/customInput/Input'
+
 import Navbar from '~/components/Navbar'
 import ButtonWave from '~/components/ButtonWave'
-import InputAnimate from '~/components/InputAnimate'
 
 export default {
 
   components: {
-    Navbar, InputAnimate, ButtonWave, Input
+    Navbar, ButtonWave
   },
   data () {
     return {

@@ -275,7 +275,7 @@ $border_weight: 1px;
 $placeholder_animation_duration: .4s;
 
 .input-custom {
-  @include h6;
+
   height: $input_height;
 
   padding-bottom: 16px;
@@ -290,7 +290,7 @@ $placeholder_animation_duration: .4s;
     top-color: transparent;
     left-color: transparent;
     right-color: transparent;
-    bottom-color: $color__light_24;
+    bottom-color: $color__light;
   };
 
   &--valid {
@@ -334,7 +334,6 @@ $placeholder_animation_duration: .4s;
   }
 
   &__placeholder {
-    @include h5;
     position: absolute;
     top: 5px + $label_bottom_padding;
 
@@ -348,7 +347,7 @@ $placeholder_animation_duration: .4s;
     transition: all $placeholder_animation_duration ease;
 
     &--animate {
-      color: $color__font--tertiary;
+      color: $color__font--primary;
       font-size: 10px;
 
       transform: translate(0%, -20px);
@@ -430,7 +429,6 @@ $placeholder_animation_duration: .4s;
 
   &__selected {
     @extend .input-custom__placeholder;
-    @include h5;
     top: 5px;
 
     transition: opacity ease .2 $placeholder_animation_duration;
@@ -447,7 +445,7 @@ $placeholder_animation_duration: .4s;
 
     padding: 24px;
 
-    border: 1px solid $color__light_16;
+    border: 1px solid $color__light;
     border-radius: 4px;
 
     background-color: $color__dark;
@@ -457,8 +455,8 @@ $placeholder_animation_duration: .4s;
     transition: all ease .2s;
 
     &-item {
-      @include title-link();
-      color: $color__font-light--primary;
+
+      color: $color__font--primary;
 
       cursor: pointer;
     }
