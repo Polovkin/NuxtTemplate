@@ -1,37 +1,44 @@
 <template>
   <section>
-    <h1>Users page</h1>
+    <h1 :class="$style.header">
+      Users page
+    </h1>
     <ul>
-      <li v-for="user of users"
-                   :key="user.id">
-        <button @click="openUser(user.id)"> {{ user.name }}</button>
+      <li
+        v-for="user of users"
+        :key="user.id"
+      >
+        <button @click="openUser(user.id)">
+          {{ user.name }}
+        </button>
       </li>
     </ul>
   </section>
-
 </template>
 
 <script>
 export default {
-  async fetch({store}) {
+  name: 'Index',
+  async fetch ({ store }) {
     if (store.getters['users/users'].length === 0) {
       await store.dispatch('users/fetch')
     }
   },
-  name: "index",
   computed: {
-    users() {
+    users () {
       return this.$store.getters['users/users']
     }
   },
   methods: {
-    openUser(user) {
+    openUser (user) {
       this.$router.push('/users/' + user)
     }
-  },
+  }
 }
 </script>
 
-<style scoped>
-
+<style module>
+.header {
+  color: red;
+}
 </style>

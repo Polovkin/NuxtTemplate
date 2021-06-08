@@ -54,6 +54,7 @@ export default {
 }
 </script>
 <style module lang="scss">
-@import "assets/scss/pages.module";
-
+.test {
+  color: green;
+}
 </style>
