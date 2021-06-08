@@ -39,7 +39,8 @@
     "stylelint": "^13.13.1",
     "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-order": "^4.1.0",
-    "stylelint-scss": "^3.19.0"
+    "stylelint-scss": "^3.19.0",
+    "vue-observe-visibility": "^1.0.0"
   },
   "config": {
     "commitizen": {
