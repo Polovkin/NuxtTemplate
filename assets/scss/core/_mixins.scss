@@ -74,7 +74,7 @@ $z-indexes: (
   @if ($url != null) {
     position: center;
 
-    background-image: url($iconsPath + $url);
+    background-image: url($iconsPath + $url + '?data');
     background-repeat: no-repeat;
     background-size: contain;
   }

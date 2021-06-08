@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueObserveVisibility from 'vue-observe-visibility'
-
+import './custom-flag'
 Vue.use(VueObserveVisibility)
 Vue.directive('click-outside', {
   bind (el, binding, vnode) {
