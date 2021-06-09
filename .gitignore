@@ -341,3 +341,4 @@ test/
 yarn-error.log
 
 # End of https://www.toptal.com/developers/gitignore/api/sass,nuxt,nuxtjs,vue,vuejs,node,jetbrains,phpstorm
+/temp/
