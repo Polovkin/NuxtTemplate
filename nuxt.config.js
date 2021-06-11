@@ -1,10 +1,10 @@
 
 export default {
   target: 'static',
-  server: {
+  /*server: {
     port: 3000,
     host: '0.0.0.0'
-  },
+  },*/
 
   head: {
     title: 'Boro digital | UX, Web & Product design agency',
