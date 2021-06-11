@@ -1,6 +1,6 @@
 
 export default {
-  target: 'static',
+  target: 'server',
   /*server: {
     port: 3000,
     host: '0.0.0.0'
