@@ -1,6 +1,12 @@
 <template>
   <div>
     <div>
+      <nuxt-link to="/">
+        home
+      </nuxt-link>
+      <nuxt-link to="/about">
+        about
+      </nuxt-link>
       <div v-if="$device.isDesktop">
         Desktop
       </div>
@@ -17,9 +23,7 @@
     <ButtonWave :btn-class="'test2'">
       test
     </ButtonWave>
-    <div :class="$style.test">
-      <div v-for="div of 3" :class="$style.elem" />
-    </div>
+
   </div>
 </template>
 

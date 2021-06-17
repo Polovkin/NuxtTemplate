@@ -1,10 +1,10 @@
 
 export default {
   target: 'server',
-  /*server: {
-    port: 3000,
+  server: {
+    port: 3003,
     host: '0.0.0.0'
-  },*/
+  },
 
   head: {
     title: 'Boro digital | UX, Web & Product design agency',
@@ -26,7 +26,7 @@ export default {
 
   buildModules: [
     '@nuxtjs/svg',
-    '@nuxtjs/eslint-module',
+    //'@nuxtjs/eslint-module',
     '@nuxtjs/device'
     /* [
       'nuxt-i18n',
