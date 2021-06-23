@@ -1,12 +1,27 @@
-@import "~breakpoint-sass";
+@import '~breakpoint-sass';
+$Breakpoint-Settings: (
+  'default media': all,
+  'default feature': max-width,
+  'default pair': width,
 
+  'force all media type': false,
+  'to ems': false,
+  'transform resolutions': true,
+
+  'no queries': false,
+  'no query fallbacks': false,
+
+  'base font size': 16px,
+
+  'legacy syntax': false
+);
 
 //Breakpoints
 $width__desktop-2k            : 2560px;
 
 $width__desktop-hd            : 1920px;
 
-$width__desktop-hd-min        : 1600px;
+$width__desktop-hd-min        : 1440px;
 
 $width__laptop                : 1366px;
 //XL
@@ -24,9 +39,13 @@ $width__min                   : 0px;
 
 
 
-
-//min 1200
+$desktop__all                 : $width__desktop-hd;
+$desktop__laptop              : $width__desktop-hd-min;
 $mobile__all                  : $width__laptop-min;
+$tablet__portrait             : $width__tablet-land;
+$phone__all                   : $width__tablet-port - 1;
+//min 1200
+/*$mobile__all                  : $width__laptop-min;
 $portrait__all                : $width__tablet-land;
 
 //Desktop
@@ -45,6 +64,6 @@ $tablet__portrait             :  screen ($width__tablet-port  $width__tablet-lan
 
 $phone__all                   : $width__min            ($width__tablet-port - 1);
 $phone__landscape             : $portrait__all         (max-height 450px);
-$phone__small                 : $width__min            $width__mobile-min;
+$phone__small                 : $width__min            $width__mobile-min;*/
 //768px   1206px galaxy tab s7
 //adv

@@ -1,4 +1,3 @@
-
 export default {
   target: 'server',
   server: {
@@ -9,12 +8,12 @@ export default {
   head: {
     title: 'Boro digital | UX, Web & Product design agency',
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      {charset: 'utf-8'},
+      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      {hid: 'description', name: 'description', content: ''}
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ]
   },
 
@@ -27,7 +26,8 @@ export default {
   buildModules: [
     '@nuxtjs/svg',
     //'@nuxtjs/eslint-module',
-    '@nuxtjs/device'
+    '@nuxtjs/device',
+    'nuxt-purgecss'
     /* [
       'nuxt-i18n',
       {
@@ -48,7 +48,9 @@ export default {
       }
     ] */
   ],
-
+  plugins: [
+    {src: '~/plugins/client.js', mode: 'client'}
+  ],
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
@@ -57,7 +59,7 @@ export default {
 
   build: {
     loaders: {
-      scss: { sourceMap: false }
+      scss: {sourceMap: false}
     },
     postcss: {
       preset: {
@@ -89,11 +91,12 @@ export default {
       /* icon options */
     }
   },
-  plugins: [
-    { src: '~/plugins/client.js', mode: 'client' }
-  ],
+  purgeCSS: {
+    // your settings here
+  },
+
   publicRuntimeConfig: {
     BASE_URL: process.env.NODE_ENV === 'production' ? 'http://localhost:3000/' : 'http://localhost:3000/',
     IS_DEV: process.env.IS_DEVELOP === 'true'
   }
-}
+};
