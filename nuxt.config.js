@@ -1,5 +1,6 @@
 export default {
-  target: 'server',
+  // target: 'server',
+  target: 'static',
   server: {
     port: 3003,
     host: '0.0.0.0'
@@ -8,12 +9,12 @@ export default {
   head: {
     title: 'Boro digital | UX, Web & Product design agency',
     meta: [
-      {charset: 'utf-8'},
-      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-      {hid: 'description', name: 'description', content: ''}
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
@@ -25,7 +26,7 @@ export default {
 
   buildModules: [
     '@nuxtjs/svg',
-    //'@nuxtjs/eslint-module',
+    // '@nuxtjs/eslint-module',
     '@nuxtjs/device',
     'nuxt-purgecss'
     /* [
@@ -49,7 +50,8 @@ export default {
     ] */
   ],
   plugins: [
-    {src: '~/plugins/client.js', mode: 'client'}
+    { src: '~/plugins/client.js', mode: 'client' },
+    '~/plugins/custom-flag.js'
   ],
   modules: [
     '@nuxtjs/axios',
@@ -59,7 +61,7 @@ export default {
 
   build: {
     loaders: {
-      scss: {sourceMap: false}
+      scss: { sourceMap: false }
     },
     postcss: {
       preset: {
@@ -99,4 +101,4 @@ export default {
     BASE_URL: process.env.NODE_ENV === 'production' ? 'http://localhost:3000/' : 'http://localhost:3000/',
     IS_DEV: process.env.IS_DEVELOP === 'true'
   }
-};
+}

@@ -2,7 +2,28 @@
 <project version="4">
   <component name="PublishConfigData" serverName="Polova.fun" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
+      <paths name="AWS@test">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="PapaVinyl">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="Polova.fun">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="boro">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />

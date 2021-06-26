@@ -17,33 +17,41 @@ $Breakpoint-Settings: (
 );
 
 //Breakpoints
-$width__desktop-2k            : 2560px;
+$width__desktop-2k            : 2560;
 
-$width__desktop-hd            : 1920px;
+$width__desktop-hd            : 1920;
 
-$width__desktop-hd-min        : 1440px;
+$width__desktop-hd-min        : 1440;
 
-$width__laptop                : 1366px;
+$width__laptop                : 1366;
 //XL
-$width__laptop-min            : 1280px;
+$width__laptop-min            : 1280;
 // LG
-$width__tablet-land           : 1024px;
+$width__tablet-land           : 1024;
 //MD
-$width__tablet-port           : 768px;
+$width__tablet-port           : 768;
 //SM
-$width__mobile-max            : 576px;
+$width__mobile-max            : 576;
 //XS
-$width__mobile-min            : 320px;
+$width__mobile-min            : 320;
 //Min
-$width__min                   : 0px;
+$width__min                   : 0 ;
+
+$px: 'px';
+
+// max-width
+$desktop__all                 : $width__desktop-hd        + $px;
+$desktop__laptop              : $width__desktop-hd-min    + $px;
+$tablet__all                  : $width__laptop-min        + $px;
+$portrait__all                : $width__tablet-land       + $px;
+$phone__all                   : ($width__tablet-port - 1) + $px;
+$phone__landscape             : ($portrait__all) (max-height 450px) (orientation landscape);
 
 
 
-$desktop__all                 : $width__desktop-hd;
-$desktop__laptop              : $width__desktop-hd-min;
-$mobile__all                  : $width__laptop-min;
-$tablet__portrait             : $width__tablet-land;
-$phone__all                   : $width__tablet-port - 1;
+
+
+
 //min 1200
 /*$mobile__all                  : $width__laptop-min;
 $portrait__all                : $width__tablet-land;

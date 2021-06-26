@@ -1,29 +1,33 @@
 <template>
   <div>
-    <div>
+    <div :class="$style.testResponsive">
+      123
+    </div>
+    <nav :class="$style.aside">
       <nuxt-link to="/">
         home
       </nuxt-link>
       <nuxt-link to="/about">
         about
       </nuxt-link>
+    </nav>
+    <div>
       <div v-if="$device.isDesktop">
-        Desktop
+        <h1>Desktop</h1>
       </div>
       <div v-if="$device.isTablet">
-        Tablet
+        <h1>Tablet</h1>
       </div>
-      <div v-if="$device.isTabletCustom">
-        Tablet asdsad
+      <div v-if="$device.isCustom">
+        <h1> Tablet custom</h1>
       </div>
       <div v-if="$device.isMobile">
-        Mobile
+        <h1>Mobile</h1>
       </div>
     </div>
     <ButtonWave :btn-class="'test2'">
       test
     </ButtonWave>
-
   </div>
 </template>
 
@@ -44,7 +48,7 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$device)
+    //console.log(this.$device)
   },
   methods: {
     sendForm () {
@@ -57,11 +61,38 @@ export default {
   }
 }
 </script>
-<style module lang="scss">
+<style module
+       lang="scss">
 .test {
   color: green;
 }
-@import '/assets/scss/core/global';
+
+.aside {
+  margin: 20px;
+  border: 1px solid black;
+}
+
+.testResponsive {
+  margin: 20px;
+  padding: 20px;
+
+  border: 3px solid black;
+
+  background-color: green;
+
+  @include breakpoint($portrait__all) {
+    background-color: black;
+  }
+  @include breakpoint($tablet__all) {
+    background-color: blue;
+  }
+  @include breakpoint($phone__all) {
+    background-color: purple;
+  }
+  @include breakpoint($phone__landscape) {
+    background-color: red;
+  }
+}
 
 @mixin active {
 
@@ -101,14 +132,11 @@ export default {
 
 .container {
 
-
   position: relative;
   z-index: z(content);
 }
 
 .wrap {
-
-
 
   background: {
 
@@ -119,7 +147,6 @@ export default {
 }
 
 .heading {
-
 
   padding-top: 202px;
 }
@@ -142,13 +169,11 @@ export default {
 
   max-width: 770px;
 
-
   grid-auto-flow: row;
   grid-gap: 50px;
 }
 
 .capture {
-
 
   padding: 5px 0 5px 32px;
 
@@ -177,7 +202,6 @@ export default {
 }
 
 .switcher {
-
 
   //margin-top: 175px;
   display: none;
@@ -285,15 +309,11 @@ export default {
 
 .accordion {
 
-
-
   background-color: $color__dark;
-
 
 }
 
 .accordionHeader {
-
 
   align-items: center;
   justify-content: center;
@@ -347,7 +367,6 @@ export default {
     }
   }
 
-
   &:hover, &:focus-visible, &:focus {
     outline: none;
   }
@@ -367,7 +386,6 @@ export default {
 }
 
 .accordionLink {
-
 
   margin-top: 20px;
 }
