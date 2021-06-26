@@ -20,20 +20,3 @@ export default function (ctx, inject) {
     })
   }
 }
-
-/*
-export default function (ctx, inject) {
-  const customIsTabet = $device.isTablet || $device.store.state.userAgent.includes('iPad')
-
-  inject('device', {
-    isTablet: customIsTabet,
-    isMobile: $device.isMobile,
-    isMobileOrTablet: $device.isMobileOrTablet,
-    isDesktop: !$device.isMobileOrTablet,
-    isIos: $device.isIos,
-    isWindows: $device.isWindows,
-    isMacOS: $device.isMacOS,
-    isDesktopOrTablet: !$device.isMobile,
-    isAndroid: $device.isMobileOrTablet && !$device.isIos
-  })
-} */
