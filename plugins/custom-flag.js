@@ -1,26 +1,39 @@
-export default function (context) {
+export default function (ctx, inject) {
   if (process.browser) {
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.platform) ||
-        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
-    console.log('is IOS', isIOS)
-  }
+    const $device = ctx.$device
+    const NewTabletRule =
+        /iPad|iPod/.test(navigator.platform) ||
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+        $device.isTablet
+    const newMobileOrTabletRule = $device.isMobileOrTablet || NewTabletRule
 
-  // $device.isCustom = $device.userAgent.includes('Custom-Agent')
+    inject('device', {
+      isTablet: NewTabletRule,
+      isMobile: $device.isMobile,
+      isMobileOrTablet: newMobileOrTabletRule,
+      isDesktop: !newMobileOrTabletRule,
+      isIos: $device.isIos,
+      isWindows: $device.isWindows,
+      isMacOS: $device.isMacOS,
+      isDesktopOrTablet: !$device.isMobile || NewTabletRule,
+      isAndroid: $device.isMobileOrTablet && !$device.isIos
+    })
+  }
 }
 
 /*
 export default function (ctx, inject) {
-  const customIsTabet = ctx.isTablet || ctx.store.state.userAgent.includes('iPad')
+  const customIsTabet = $device.isTablet || $device.store.state.userAgent.includes('iPad')
 
   inject('device', {
     isTablet: customIsTabet,
-    isMobile: ctx.isMobile,
-    isMobileOrTablet: ctx.isMobileOrTablet,
-    isDesktop: !ctx.isMobileOrTablet,
-    isIos: ctx.isIos,
-    isWindows: ctx.isWindows,
-    isMacOS: ctx.isMacOS,
-    isDesktopOrTablet: !ctx.isMobile,
-    isAndroid: ctx.isMobileOrTablet && !ctx.isIos
+    isMobile: $device.isMobile,
+    isMobileOrTablet: $device.isMobileOrTablet,
+    isDesktop: !$device.isMobileOrTablet,
+    isIos: $device.isIos,
+    isWindows: $device.isWindows,
+    isMacOS: $device.isMacOS,
+    isDesktopOrTablet: !$device.isMobile,
+    isAndroid: $device.isMobileOrTablet && !$device.isIos
   })
 } */

@@ -28,7 +28,6 @@ export default {
     '@nuxtjs/svg',
     // '@nuxtjs/eslint-module',
     '@nuxtjs/device',
-    'nuxt-purgecss'
     /* [
       'nuxt-i18n',
       {
@@ -92,9 +91,6 @@ export default {
     icon: {
       /* icon options */
     }
-  },
-  purgeCSS: {
-    // your settings here
   },
 
   publicRuntimeConfig: {
