@@ -12,7 +12,7 @@ export default {
   styleResources: {
     scss: '@/assets/scss/core/_global.scss',
   },
-  plugins: [],
+  plugins: [{ src: '~/plugins/client.js', mode: 'client' }],
   components: true,
   buildModules: [
     '@nuxtjs/eslint-module',
