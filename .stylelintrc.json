@@ -307,7 +307,7 @@
     "property-no-vendor-prefix": true,
     "value-no-vendor-prefix": true,
     "number-leading-zero": "never",
-    "function-url-quotes": "always",
+    "function-url-quotes": "never",
     "font-weight-notation": "named-where-possible",
     "font-family-name-quotes": "always-where-required",
     "at-rule-no-vendor-prefix": true,
