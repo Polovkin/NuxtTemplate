@@ -1,4 +1,11 @@
 export default {
+  /* server: {
+  port: 3000,
+  host: '0.0.0.0'
+}, */
+  /* serverMiddleware: {
+    "/_ipx": "~/server/middleware/ipx.js",
+  }, */
   head: {
     title: 'ad',
     meta: [
