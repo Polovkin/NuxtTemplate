@@ -5,7 +5,7 @@
 
 .sidebar-open {
   @include size(100%);
-  position:relative;
+  position: relative;
 
   overflow: hidden;
   touch-action: none;
@@ -18,7 +18,7 @@
 .gatsby-image-wrapper img {
   opacity: 1;
 
-  transition: opacity .5s ease 0s!important;
+  transition: opacity 0.5s ease 0s !important;
 }
 
 .prevent-scroll {

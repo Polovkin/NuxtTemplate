@@ -1,9 +1,9 @@
 @import '_keyframes';
 
 @mixin base-animation {
-  transition: all ease .2s;
+  transition: all ease 0.2s;
 }
 
 @mixin down-animation {
-  animation: .5s ease-in 0s infinite alternate bounce;
+  animation: 0.5s ease-in 0s infinite alternate bounce;
 }
