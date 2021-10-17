@@ -1,100 +1,56 @@
 export default {
-  // target: 'server',
-  target: 'static',
-  server: {
-    port: 3003,
-    host: '0.0.0.0'
-  },
-
+  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Boro digital | UX, Web & Product design agency',
+    title: 'ad',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: '' },
+      { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
-  styleResources: {
-    scss: '@/assets/scss/core/_global.scss'
-  },
+  // Global CSS: https://go.nuxtjs.dev/config-css
+  css: [
+  ],
 
+  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+  plugins: [
+  ],
+
+  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    '@nuxtjs/svg',
-    // '@nuxtjs/eslint-module',
-    '@nuxtjs/device',
-    /* [
-      'nuxt-i18n',
-      {
-        strategy: 'prefix_except_default',
-        vueI18nLoader: true,
-        defaultLocale: 'en',
-        locales: [
-          {
-            code: 'en',
-            name: 'Eng'
-          },
-          {
-            code: 'ru',
-            name: 'Рус'
-          }
-        ],
-        vueI18n: i18n
-      }
-    ] */
+    // https://go.nuxtjs.dev/eslint
+    '@nuxtjs/eslint-module',
+    // https://go.nuxtjs.dev/stylelint
+    '@nuxtjs/stylelint-module',
   ],
-  plugins: [
-    { src: '~/plugins/client.js', mode: 'client' },
-    '~/plugins/custom-flag.js'
-  ],
+
+  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@nuxtjs/style-resources'
   ],
 
-  build: {
-    loaders: {
-      scss: { sourceMap: false }
-    },
-    postcss: {
-      preset: {
-        autoprefixer: {}
-      },
-      plugins: {
-        cssnano: {
-          preset: [
-            'default',
-            {
-              discardComments: {
-                removeAll: true
-              }
-            }
-          ]
-        },
-        'postcss-sort-media-queries': {
-          sort: require('sort-css-media-queries')
-        }
-      }
-    }
-  },
+  // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  axios: {},
 
-  image: {
-    staticFilename: '[name]-[hash][ext]'
-  },
+  // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
-    icon: {
-      /* icon options */
+    manifest: {
+      lang: 'en'
     }
   },
 
-  publicRuntimeConfig: {
-    BASE_URL: process.env.NODE_ENV === 'production' ? 'http://localhost:3000/' : 'http://localhost:3000/',
-    IS_DEV: process.env.IS_DEVELOP === 'true'
+  // Build Configuration: https://go.nuxtjs.dev/config-build
+  build: {
   }
 }
