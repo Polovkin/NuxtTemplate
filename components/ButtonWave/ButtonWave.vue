@@ -57,5 +57,4 @@ export default {
        lang="scss">
 @import "button-wave.module";
 
-
 </style>
