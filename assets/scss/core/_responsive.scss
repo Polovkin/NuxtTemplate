@@ -1,57 +1,37 @@
 @import '~breakpoint-sass';
-$Breakpoint-Settings: (
-  'default media': all,
-  'default feature': max-width,
-  'default pair': width,
-
-  'force all media type': false,
-  'to ems': false,
-  'transform resolutions': true,
-
-  'no queries': false,
-  'no query fallbacks': false,
-
-  'base font size': 16px,
-
-  'legacy syntax': false
-);
 
 //Breakpoints
-$width__desktop-2k            : 2560;
+$width__desktop-2k: 2560;
 
-$width__desktop-hd            : 1920;
+$width__desktop-hd: 1920;
 
-$width__desktop-hd-min        : 1440;
+$width__desktop-hd-min: 1440;
 
-$width__laptop                : 1366;
+$width__laptop: 1366;
 //XL
-$width__laptop-min            : 1200;
+$width__laptop-min: 1200;
 // LG
-$width__tablet-land           : 1024;
+$width__tablet-land: 1024;
 //MD
-$width__tablet-port           : 768;
+$width__tablet-port: 768;
 //SM
-$width__mobile-max            : 576;
+$width__mobile-max: 576;
 //XS
-$width__mobile-min            : 320;
+$width__mobile-min: 320;
 //Min
-$width__min                   : 0;
+$width__min: 0;
 
 $px: 'px';
 
 // max-width
-$desktop__all                 : $width__desktop-hd - .6         + $px;
-$desktop__laptop              : $width__desktop-hd-min           + $px;
-$desktop__2k                  : $width__desktop-2k               + $px;
-$mobile__all                  : ($width__laptop-min - .6)       + $px;
-$portrait__all                : $width__tablet-land              + $px;
-$phone__all                   : ($width__tablet-port - .6)      + $px;
-$phone__small                 : $width__mobile-max               + $px;
-$phone__landscape             : ($portrait__all) (max-height 450px) (orientation landscape);
-
-
-
-
+$desktop__all: $width__desktop-hd - 0.6         + $px;
+$desktop__laptop: $width__desktop-hd-min           + $px;
+$desktop__2k: $width__desktop-2k               + $px;
+$mobile__all: ($width__laptop-min - 0.6)       + $px;
+$portrait__all: $width__tablet-land              + $px;
+$phone__all: ($width__tablet-port - 0.6)      + $px;
+$phone__small: $width__mobile-max               + $px;
+$phone__landscape: ($portrait__all) (max-height 450px) (orientation landscape);
 
 
 //min 1200
