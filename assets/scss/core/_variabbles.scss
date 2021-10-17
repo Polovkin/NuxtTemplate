@@ -7,17 +7,17 @@ $font__file-name: '#{$font__family}-';
 $font__path: '/fonts/#{$font__file-name}';
 $font__ext: (woff2, woff);
 $font__types: (
-                ('Regular', normal, normal),
-                ('Medium', 500, normal),
-                ('SemiBold', 600, normal),
-                ('Bold', 700, normal),
-                ('ExtraBold', 800, normal),
+  ('Regular', normal, normal),
+  ('Medium', 500, normal),
+  ('SemiBold', 600, normal),
+  ('Bold', 700, normal),
+  ('ExtraBold', 800, normal),
 );
 
 
 $input__font-size: $font__size;
 $input__font-color: $color__font--primary;
-$input__placeholder-color: gray;
+$input__placeholder-color: #828282;
 $input_height: 50px;
 
 $imgPath: '/images/';

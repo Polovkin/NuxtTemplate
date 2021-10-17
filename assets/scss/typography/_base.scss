@@ -57,13 +57,6 @@ li {
   list-style-type: none;
 }
 
-p,
-a,
-b,
-span,
-li {
-  font-size: rem($font__size);
-}
 
 a {
   color: $color__font--primary;
@@ -105,8 +98,6 @@ textarea {
   width: 100%;
 }
 
-
-a,
 label,
 button,
 input[type='radio'],
