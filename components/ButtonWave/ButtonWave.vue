@@ -1,13 +1,10 @@
 <template>
   <button
     ref="button"
-    :class="[$style.button,btnClass]"
+    :class="[$style.button, btnClass]"
     @mousedown="mousedown"
   >
-    <span
-      ref="wave"
-      :class="$style.wave"
-    />
+    <span ref="wave" :class="$style.wave" />
     <slot />
   </button>
 </template>
@@ -18,43 +15,43 @@ export default {
   props: {
     text: {
       type: String,
-      default: 'wave'
+      default: 'wave',
     },
     btnClass: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
-  data () {
+  data() {
     return {
       button: null,
-      wave: null
+      wave: null,
     }
   },
-  mounted () {
+  mounted() {
     this.button = this.$refs.button
     this.wave = this.$refs.wave
   },
   methods: {
-    mousedown (event) {
+    mousedown(event) {
       const className = this.$style.active
       if (this.button.classList.contains(className)) {
         this.button.classList.remove(className)
       }
 
-      this.wave.style.left = event.clientX - this.button.getBoundingClientRect().left + 'px'
-      this.wave.style.top = event.clientY - this.button.getBoundingClientRect().top + 'px'
+      this.wave.style.left =
+        event.clientX - this.button.getBoundingClientRect().left + 'px'
+      this.wave.style.top =
+        event.clientY - this.button.getBoundingClientRect().top + 'px'
 
       // eslint-disable-next-line no-void
       void this.button.offsetWidth
       this.button.classList.add(className)
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style module
-       lang="scss">
-@import "button-wave.module";
-
+<style module lang="scss">
+@import 'button-wave.module';
 </style>
