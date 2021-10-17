@@ -1,17 +1,12 @@
 <template>
   <div>
-    <div v-click-outside="test">
-      <ButtonWave />
-    </div>
-    <div v-in-viewport.once>1`23</div>
+    <div :class="$style.test">Test</div>
+    <div :class="$style.test2">Test2</div>
   </div>
 </template>
 
 <script>
-import ButtonWave from '~/components/ButtonWave/ButtonWave'
-
 export default {
-  components: { ButtonWave },
   methods: {
     test() {
       console.log(123)
@@ -19,3 +14,26 @@ export default {
   },
 }
 </script>
+
+<style module lang="scss">
+.test {
+  color: rgba(255, 0, 0, 0.96);
+  font-size: 30px;
+  font-weight: bold;
+  @include breakpoint($mobile__all) {
+    color: #369e92;
+  }
+  @include breakpoint($phone__all) {
+    color: #51d720;
+  }
+  @include breakpoint($desktop__all) {
+    color: #69369e;
+  }
+}
+
+.test2 {
+  @include breakpoint($desktop__all) {
+    color: #69369e;
+  }
+}
+</style>

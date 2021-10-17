@@ -32,5 +32,26 @@ export default {
       lang: 'en',
     },
   },
-  build: {},
+  build: {
+    loaders: {
+      scss: { sourceMap: false },
+    },
+    postcss: {
+      plugins: {
+        cssnano: {
+          preset: [
+            'default',
+            {
+              discardComments: {
+                removeAll: true,
+              },
+            },
+          ],
+        },
+        'postcss-sort-media-queries': {
+          sort: require('sort-css-media-queries'),
+        },
+      },
+    },
+  },
 }
