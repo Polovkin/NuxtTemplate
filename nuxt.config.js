@@ -14,7 +14,15 @@ export default {
   },
   plugins: [],
   components: true,
-  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/stylelint-module'],
+  buildModules: [
+    '@nuxtjs/eslint-module',
+    [
+      '@nuxtjs/stylelint-module',
+      {
+        /* module options */
+      },
+    ],
+  ],
 
   modules: ['@nuxtjs/axios', '@nuxtjs/pwa', '@nuxtjs/style-resources'],
 
