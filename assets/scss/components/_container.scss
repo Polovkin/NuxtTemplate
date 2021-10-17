@@ -1,71 +1,77 @@
-@mixin min($bp, $max: 'null', $device: 'screen') {
-  @if $max == 'null' {
-    @media only #{$device} and (min-width: #{$bp}) {
-      @content;
-    }
-  } @else {
-    @media only #{$device} and (min-width: #{$bp}) and (max-width: #{$max}) {
-      @content;
-    }
-  }
-}
-
-@function bp($bp) {
-  @return map-get($breakpoints, $bp);
-}
-
-$breakpoints: (
-  na: $width__min,
-        xs: $width__mobile-min,
-        sm: $width__tablet-port ,
-        md: $width__tablet-land ,
-        lg: $width__laptop-min ,
-        xl: $width__desktop-hd-min,
-        xxl: $width__desktop-hd + 1,
-);
-
-@function container($container-size, $true-val: false) {
-  @return map-get($container-sizes, $container-size);
-}
-
-$container-sizes: (
-  sm: map-get($breakpoints, sm) - 28px,
-  md: map-get($breakpoints, md) - 54px,
-  lg: map-get($breakpoints, lg) - 100px,
-  xl: map-get($breakpoints, xl) - 160px,
-  xxl: map-get($breakpoints, xxl) - 160px
-);
-
 .container {
-  padding-right: 1rem;
-  padding-left: 1rem;
+  max-width: 1200px;
 
-  &:not(.is-fluid) {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
 
-    @each $bp, $container-size in $container-sizes {
-      @include min(#{bp(#{$bp})}) {
-        width: 100%;
-        max-width: container(#{$bp});
-      }
-    }
-    margin: 0 auto;
+  &-fluid {
+    @extend .container;
+    max-width: 100%;
+  }
+
+  @include breakpoint ($mobile__all) {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  @include breakpoint ($phone__all) {
+    padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
-@each $bp, $container-size in $container-sizes {
-  .container-#{$bp} {
+.section-component {
+  padding: 70px 0;
 
-    $i: index($container-sizes, $bp $container-size);
+  background-color: $color__dark;
 
-    @for $j from $i through length($container-sizes) {
-      @include min(#{bp(nth(nth($container-sizes, $j), 1))}) {
-        max-width: container(#{nth(nth($container-sizes, $j), 1)});
+  &__title {
+    margin-bottom: 30px;
+
+    color: $color-font__primary;
+  }
+
+  &__content {
+    position: relative;
+
+    & > p {
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 0;
       }
     }
-    width: 100%;
-
-    margin: 0 auto;
-    padding-right: 1rem;
-    padding-left: 1rem;
   }
+
+  &--light {
+    background-color: $color__light;
+
+    .section-component__content {
+
+      & > p {
+        color: rgba($color-font__secondary, .5);
+      }
+
+    }
+
+    .section-component__title {
+      color: $color-font__secondary;
+    }
+  }
+  @include breakpoint ($mobile__all) {
+    padding: 50px 0;
+  }
+}
+
+.section {
+  padding: 70px 0;
+  @include breakpoint ($mobile__all) {
+    padding: 50px 0;
+  }
+}
+
+.wrapper {
+  position: relative;
 }

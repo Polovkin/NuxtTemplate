@@ -1,0 +1,37 @@
+@import '_keyframes';
+
+@mixin base-animation {
+  transition: all ease .2s;
+}
+
+@mixin hover-chevron {
+
+  &:before {
+    @include base-animation;
+    @include size(24px);
+    content: '';
+
+    display: block;
+
+    margin-right: 10px;
+
+    opacity: 0;
+
+    background: {
+      image: url('/icons/chevron-left.svg');
+      size: contain;
+      repeat: no-repeat;
+    }
+  }
+
+  &:hover {
+
+    &:before {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin down-animation {
+  animation: .5s ease-in 0s infinite alternate bounce;
+}

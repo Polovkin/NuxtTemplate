@@ -1,19 +1,16 @@
 
-
-@each $name, $weight, $style in $font__types {
-  @include font-face($font__family, $font__path+$name, $weight, $style, $font__ext);
-}
-
 html {
 
   height: 100%;
 
   font-size: $font__size;
   line-height: $font__line-height;
+
+  cursor: default;
   @include breakpoint($desktop__laptop) {
     font-size: 16px;
   }
-  @include breakpoint($tablet__all) {
+  @include breakpoint($mobile__all ) {
     font-size: 15px;
   }
   @include breakpoint(($width__mobile-min + 1) $width__tablet-port) {
@@ -22,6 +19,10 @@ html {
   @include breakpoint($width__min ($width__mobile-min + 1)) {
     font-size: 12px;
   }
+}
+
+code {
+  cursor: text;
 }
 
 body {
@@ -79,7 +80,7 @@ a {
     outline: 0;
   }
 
-  @include breakpoint($tablet__all) {
+  @include breakpoint($mobile__all ) {
     font-size: 18px;
     line-height: 24px;
   }
@@ -105,3 +106,16 @@ textarea {
 }
 
 
+a,
+label,
+button,
+input[type='radio'],
+input[type='submit'],
+input[type='checkbox'] {
+  cursor: pointer;
+}
+
+button[disabled],
+input[disabled] {
+  cursor: default;
+}

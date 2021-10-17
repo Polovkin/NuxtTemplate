@@ -1,2 +1,116 @@
 @import 'base';
-@import 'headings';
+
+.text {
+
+  &-color {
+
+    &--primary {
+      color: $color-font__primary;
+    }
+
+    &--secondary {
+      color: $color-font__secondary !important;
+    }
+
+    &__gray {
+
+      &--on-dark {
+        color: $color-font__gray--on-dark !important;
+      }
+
+      &--on-light {
+        color: $color-font__gray--on-light !important;
+      }
+    }
+
+    &--main {
+      color: $color__primary;
+    }
+  }
+}
+
+
+a {
+  @include text-24-link-bold
+}
+
+h1 {
+  @include headline-h1;
+}
+
+h2 {
+  @include headline-h2;
+}
+
+h3 {
+  @include headline-h3;
+}
+
+h4 {
+  @include headline-h4;
+}
+
+h5 {
+  @include headline-h5;
+}
+
+p {
+  @include text-24-tagline-semibold;
+}
+
+.headline-h1 {
+  @include headline-h1;
+}
+
+.headline-h2 {
+  @include headline-h2;
+}
+
+.headline-h3 {
+  @include headline-h3;
+}
+
+.headline-h4 {
+  @include headline-h4;
+}
+
+.headline-h5 {
+  @include headline-h5;
+}
+
+.text-24-link-bold {
+  @include text-24-link-bold;
+}
+
+.text-24-tagline-semibold {
+  @include text-24-tagline-semibold;
+}
+
+.text-22-paragraph-semibold {
+  @include text-22-paragraph-semibold;
+}
+
+.text-18-caption-bold {
+  @include text-18-caption-bold;
+}
+
+.text-18-caption-text {
+  @include text-18-caption-text;
+}
+
+.caption-semibold-16 {
+  @include caption-semibold-16;
+}
+
+.caption-semibold-14 {
+  @include caption-semibold-14;
+}
+
+
+
+
+/*
+textarea and input[type="text"] already receive
+"cursor: text" via browsers' base stylesheets
+*/
+

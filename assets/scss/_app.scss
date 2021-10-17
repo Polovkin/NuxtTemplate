@@ -1,8 +1,26 @@
-@import 'node_modules/normalize.css/normalize.css';
-@import '~@/assets/scss/typography';
-@import '~@/assets/scss/animation';
-@import '~@/assets/scss/components';
-@import '~@/assets/scss/pages';
+@import 'core/global';
+@import '~normalize.css';
+@import 'typography';
+@import 'animation';
+@import 'components';
+@import 'services';
+//@import 'pages';
+
+* {
+  box-sizing: border-box;
 
 
+  &:active, &:focus, &:hover {
+    outline: 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+
+}
+
+html,body {
+  overscroll-behavior-y: none;
+}
 

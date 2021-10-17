@@ -1,5 +1,34 @@
-button {
+%preventing_outlines {
+  outline: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
 
+  &:focus, &:active, &:hover {
+    outline: none;
+  }
+}
+
+[role='button'] {
+  @extend %preventing_outlines;
+}
+
+* {
+  outline: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus, &:active, &:hover {
+    outline: none;
+  }
+}
+
+a {
+  @extend %preventing_outlines;
+}
+
+button {
+  @extend %preventing_outlines;
   padding: 0;
 
   border: none;
@@ -10,4 +39,204 @@ button {
   font: inherit;
 
   cursor: pointer;
+}
+
+.button-primary {
+
+  align-items: center;
+
+  position: relative;
+
+  display: flex;
+  max-width: fit-content;
+
+  height: 57px;
+  min-height: 57px;
+  overflow: hidden;
+
+  padding: 0 25px 0 34px;
+
+
+  border: 2px solid $color__primary;
+  border-radius: 50px;
+
+  background-color: transparent;
+
+  color: $color-font__primary;
+
+  text-decoration: unset;
+
+  transform: translateZ(0);
+
+  transition: background-color .2s 0s;
+
+  &--disabled {
+    opacity: .4;
+    pointer-events: none;
+  }
+
+  &__content {
+    @include text-22-paragraph-semibold;
+    @include base-animation;
+    position: relative;
+    z-index: z(content);
+
+    margin-right: 0;
+
+    margin-left: 20px;
+
+    text-transform: capitalize;
+
+    white-space: nowrap;
+
+    @include breakpoint($mobile__all) {
+      font-size: 22px;
+    }
+    @include breakpoint($phone__all) {
+      font-size: 18px !important;
+      line-height: 22px;
+    }
+
+  }
+
+  .up.button-primary {
+    &:before {
+      transform: rotate(-90deg)
+    }
+  }
+
+  .down.button-primary {
+
+    &:after {
+      transform: rotate(90deg)
+    }
+  }
+
+  .wave {
+    @include pseudoElement(16px);
+    position: absolute;
+    left: -50px;
+    z-index: z(bg-content);
+
+    border-radius: 50%;
+
+    background-color: $color__primary;
+
+    transition: all ease .8s;
+    @include breakpoint($phone__all) {
+      display: none;
+    }
+  }
+
+  &:before, &:after {
+    @include base-animation;
+    position: absolute;
+    z-index: z(content);
+
+    min: {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &:before {
+    @include pseudoElement(20px, '/chevron-left.svg');
+    left: 25px;
+
+    opacity: 1;
+  }
+
+  &:after {
+    @include pseudoElement(20px, '/chevron-white.svg');
+    top: calc(50% + 2px);
+    right: 20px;
+
+    transform: translateY(-50%) translateX(40px);
+    opacity: 0;
+  }
+
+  &:active {
+    background-color: $color__primary;
+
+    color: $color__font--secondary;
+
+    transform: scale(.98);
+
+    &:before, &:after {
+      background: {
+        image: url('/icons/chevron-white.svg') !important;
+      }
+    }
+  }
+
+  &--light {
+    color: $color-font__secondary;
+  }
+
+  &--neutral {
+    border: 2px solid $color__light;
+
+    &:before {
+      @include pseudoElement(20px, '/chevron-white.svg');
+    }
+  }
+
+  &--up {
+
+    &:before {
+      transform: rotate(-90deg)
+    }
+
+    &:hover:after {
+      transform: translateX(0) translateY(-50%) rotate(-90deg) !important;
+    }
+  }
+
+  &--down {
+
+    &:before {
+      transform: rotate(90deg)
+    }
+
+    &:hover:after {
+      transform: translateX(0) translateY(-50%) rotate(90deg) !important;
+    }
+  }
+
+  @include breakpoint($mobile__all) {
+    height: 48px;
+    min-height: 48px;
+
+    padding: 13px 20px 13px 29px;
+  }
+
+  @media (hover: hover) {
+
+    &:hover {
+      background-color: $color__primary;
+
+      color: $color-font__primary;
+
+      transition: background-color .2s .25s;
+
+      .button-primary__content {
+        margin-right: 20px;
+        margin-left: 0;
+      }
+
+      &:before {
+        transform: translateX(-40px);
+        opacity: 0;
+      }
+
+      &:after {
+        transform: translateX(0) translateY(-50%);
+        opacity: 1;
+      }
+
+      .wave {
+        transform: scale(50);
+      }
+    }
+  }
 }

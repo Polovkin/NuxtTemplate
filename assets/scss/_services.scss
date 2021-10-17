@@ -1,0 +1,65 @@
+#form {
+  position: absolute;
+  top: -200px;
+}
+
+.sidebar-open {
+  @include size(100%);
+  position:relative;
+
+  overflow: hidden;
+  touch-action: none;
+
+  .scroll-button {
+    display: none !important;
+  }
+}
+
+.gatsby-image-wrapper img {
+  opacity: 1;
+
+  transition: opacity .5s ease 0s!important;
+}
+
+.prevent-scroll {
+  @extend .sidebar-open;
+}
+
+.hidden {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  font-size: 10px;
+
+  &--dark {
+    color: $color_font__secondary;
+  }
+
+  &--light {
+    color: $color_font__primary;
+  }
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-unset {
+  position: unset;
+}
+
+.reset-section-position {
+
+  div > div:last-child {
+    position: unset;
+  }
+}
+
+.overflow-visible {
+
+  main {
+    overflow: visible;
+  }
+
+}

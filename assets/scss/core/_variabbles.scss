@@ -1,22 +1,24 @@
 $font__line-height: auto;
 $font__size: 18px;
 $font__weight: normal;
-$font__family: 'SourceCodePro';
+$font__family: 'Raleway';
 $font__style: sans-serif;
-$font__file-name: 'SourceCodePro-';
-$font__path: '~@/assets/fonts/#{$font__file-name}';
+$font__file-name: '#{$font__family}-';
+$font__path: '/fonts/#{$font__file-name}';
 $font__ext: (woff2, woff);
 $font__types: (
-                ('Light', 300, normal),
-                ('Bold', bold, normal),
                 ('Regular', normal, normal),
+                ('Medium', 500, normal),
+                ('SemiBold', 600, normal),
+                ('Bold', 700, normal),
+                ('ExtraBold', 800, normal),
 );
 
-$header_height: 60px;
+
 $input__font-size: $font__size;
 $input__font-color: $color__font--primary;
 $input__placeholder-color: gray;
 $input_height: 50px;
 
-$imgPath: '~static/img';
-$iconsPath: '~static/icons/';
+$imgPath: '/images/';
+$iconsPath: '/icons/';

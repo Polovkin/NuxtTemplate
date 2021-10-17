@@ -1,6 +1,3 @@
-
-
-
 @mixin size($width,$height: $width) {
   width: $width;
   height: $height;
@@ -19,7 +16,12 @@
 
 // List
 $z-indexes: (
+  'modal',
+  'modal-content',
+  'sidebar',
+  'sidebar-bg',
   'header',
+  'top-content-p',
   'top-content',
   'content',
   'bg-content',
@@ -74,7 +76,7 @@ $z-indexes: (
   @if ($url != null) {
     position: center;
 
-    background-image: url($iconsPath + $url + '?data');
+    background-image: url($iconsPath + $url);
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -311,3 +313,7 @@ $z-indexes: (
   }
 }
 
+@function vwSizeFunction($elem_size,$window_width) {
+  $round_size: $elem_size / $window_width;
+  @return calc(#{$round_size} * 100vw)
+}

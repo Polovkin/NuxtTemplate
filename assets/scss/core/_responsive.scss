@@ -25,7 +25,7 @@ $width__desktop-hd-min        : 1440;
 
 $width__laptop                : 1366;
 //XL
-$width__laptop-min            : 1280;
+$width__laptop-min            : 1200;
 // LG
 $width__tablet-land           : 1024;
 //MD
@@ -35,16 +35,18 @@ $width__mobile-max            : 576;
 //XS
 $width__mobile-min            : 320;
 //Min
-$width__min                   : 0 ;
+$width__min                   : 0;
 
 $px: 'px';
 
 // max-width
-$desktop__all                 : $width__desktop-hd        + $px;
-$desktop__laptop              : $width__desktop-hd-min    + $px;
-$tablet__all                  : $width__laptop-min        + $px;
-$portrait__all                : $width__tablet-land       + $px;
-$phone__all                   : ($width__tablet-port - 1) + $px;
+$desktop__all                 : $width__desktop-hd - .6         + $px;
+$desktop__laptop              : $width__desktop-hd-min           + $px;
+$desktop__2k                  : $width__desktop-2k               + $px;
+$mobile__all                  : ($width__laptop-min - .6)       + $px;
+$portrait__all                : $width__tablet-land              + $px;
+$phone__all                   : ($width__tablet-port - .6)      + $px;
+$phone__small                 : $width__mobile-max               + $px;
 $phone__landscape             : ($portrait__all) (max-height 450px) (orientation landscape);
 
 

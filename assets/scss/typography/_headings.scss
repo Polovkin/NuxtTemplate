@@ -1,0 +1,171 @@
+@mixin headline-h1 {
+  line-height: 64px;
+  font: {
+    weight: 800;
+    size: 64px;
+  };
+  @include breakpoint ($mobile__all) {
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  @include breakpoint ($phone__all) {
+    font-size: 30px;
+    line-height: 30px;
+  }
+}
+
+@mixin headline-h2 {
+  line-height: 110%;
+  font: {
+    weight: 800;
+    size: 48px;
+  };
+  @include breakpoint ($mobile__all) {
+    font-size: 40px;
+  }
+  @include breakpoint ($phone__all) {
+    font-size: 28px;
+    line-height: 28px;
+  }
+}
+
+@mixin headline-h3 {
+  line-height: 110%;
+  font: {
+    weight: 800;
+    size: 36px;
+  };
+  @include breakpoint ($mobile__all) {
+    font-size: 35px;
+  }
+  @include breakpoint ($phone__all) {
+    font-size: 26px;
+  }
+}
+
+@mixin headline-h4 {
+  line-height: 120%;
+  font: {
+    weight: 800;
+    size: 32px;
+  };
+  @include breakpoint ($mobile__all) {
+    font-size: 30px;
+  }
+  @include breakpoint ($phone__all) {
+    font-size: 24px;
+    line-height: 29px;
+  }
+}
+
+@mixin headline-h5 {
+  line-height: 120%;
+  font: {
+    weight: 800;
+    size: 28px;
+  };
+  @include breakpoint ($mobile__all) {
+    font-size: 26px;
+    line-height: 31px;
+  }
+  @include breakpoint ($phone__all) {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+
+@mixin text-24-link-bold {
+  line-height: 28px;
+  font: {
+    weight: 700;
+    size: 24px;
+  };
+  @include breakpoint ($phone__all) {
+    font-size: 18px;
+  }
+}
+
+@mixin text-24-tagline-semibold {
+  line-height: 150%;
+  font: {
+    weight: 600;
+    size: 24px;
+  };
+  @include breakpoint ($phone__all) {
+    font-size: 18px;
+    line-height: 130%;
+  }
+}
+
+@mixin text-22-paragraph-semibold {
+  line-height: 140%;
+  font: {
+    weight: 600;
+    size: 22px;
+  };
+  @include breakpoint ($phone__all) {
+    font-size: 16px;
+    line-height: 21px;
+  }
+}
+
+@mixin text-18-caption-bold {
+  line-height: 21px;
+  font: {
+    weight: 700;
+    size: 18px;
+  };
+  @include breakpoint ($mobile__all) {
+    font-size: 16px;
+  }
+  @include breakpoint ($phone__all) {
+    font-size: 14px;
+  }
+}
+
+@mixin text-18-caption-text {
+  line-height: 130%;
+  font: {
+    weight: 600;
+    size: 18px;
+  };
+  @include breakpoint ($phone__all) {
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+@mixin caption-semibold-16 {
+  line-height: 130%;
+  font: {
+    weight: 600;
+    size: 16px;
+  };
+  @include breakpoint ($phone__all) {
+    font-size: 13px;
+  }
+}
+
+@mixin caption-semibold-14 {
+  line-height: 130%;
+  font: {
+    weight: 600;
+    size: 14px;
+  };
+  @include breakpoint ($phone__all) {
+    font-size: 13px;
+  }
+}
+
+@mixin preventOutlines() {
+  outline: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus, &:active, &:hover {
+    outline: none;
+  }
+}
+
