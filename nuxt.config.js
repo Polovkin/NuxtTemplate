@@ -32,7 +32,12 @@ export default {
     ],
   ],
   htmlValidator: { usePrettier: true },
-  modules: ['@nuxtjs/axios', '@nuxtjs/pwa', '@nuxtjs/style-resources'],
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/pwa',
+    '@nuxtjs/style-resources',
+    '@nuxt/image',
+  ],
 
   axios: {},
   pwa: {
