@@ -23,6 +23,7 @@ export default {
   components: true,
   buildModules: [
     '@nuxtjs/eslint-module',
+    '@nuxtjs/html-validator',
     [
       '@nuxtjs/stylelint-module',
       {
@@ -30,7 +31,7 @@ export default {
       },
     ],
   ],
-
+  htmlValidator: { usePrettier: true },
   modules: ['@nuxtjs/axios', '@nuxtjs/pwa', '@nuxtjs/style-resources'],
 
   axios: {},

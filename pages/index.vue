@@ -1,5 +1,10 @@
 <template>
   <div>
+    <img
+      width="200"
+      src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg"
+      alt="1"
+    />
     <div :class="$style.test">Test</div>
     <div :class="$style.test2">Test2</div>
   </div>
@@ -9,7 +14,7 @@
 export default {
   methods: {
     test() {
-      console.log(123)
+      // console.log(123)
     },
   },
 }
